@@ -131,8 +131,8 @@ const Footer = () => {
 
         <div className="footer-support">
           <h1>SUPPORT</h1>
-          <a href={`mailto:${companyMailId}`}>support@redtortue.com</a>
-          <a href={`tel:${companyNumber}`}>+91 9847567845</a>
+          <a href={`mailto:${companyMailId}`}>contact@roverinco.com</a>
+          <a href={`tel:${companyNumber}`}>+91 9888684444</a>
           <img src={Logo_google} alt="lo" className="w-auto h-26" />
         </div>
         <div className="footer-address">

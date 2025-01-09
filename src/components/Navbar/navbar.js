@@ -26,10 +26,12 @@ import { BsCart3 } from "react-icons/bs";
 const currencies = ["INR", "USD", "AUD", "EUR", "GBP"];
 const Categories = [
   { name: "Clothing", href: "/clothing" },
+  { name: "FMCG", href: "/FMCG" },
   { name: "Construction Material", href: "/construction-material" },
-  { name: "Gold", href: "/gold" },
+  { name: "Jewellery", href: "/gold" },
   { name: "Groceries", href: "/groceries" },
   { name: "Food Items", href: "/food" },
+  { name: "Dairy", href: "/dairy" },
 
 ];
 

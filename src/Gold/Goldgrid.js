@@ -18,6 +18,18 @@ const Gold10Image = require("../assets/gold_images/10.jpg");
 const Gold11Image = require("../assets/gold_images/11.jpg");
 const Gold12Image = require("../assets/gold_images/12.jpg");
 
+const GoldCat1 = require("../assets/Gold_Banner_Imges/c-gold1.jpg");
+const GoldCat2 = require("../assets/Gold_Banner_Imges/c-gold2.jpg");
+const GoldCat3 = require("../assets/Gold_Banner_Imges/c-gold3.jpg");
+const GoldCat4 = require("../assets/Gold_Banner_Imges/c-gold4.jpg");
+const GoldCat5 = require("../assets/Gold_Banner_Imges/c-gold5.jpg");
+const GoldCat6 = require("../assets/Gold_Banner_Imges/c-gold6.jpg");
+const GoldCat7 = require("../assets/Gold_Banner_Imges/c-gold7.jpg");
+const GoldCat8 = require("../assets/Gold_Banner_Imges/c-gold8.jpg");
+const GoldCat9 = require("../assets/Gold_Banner_Imges/c-gold10.jpg");
+const GoldCat10 = require("../assets/Gold_Banner_Imges/c-gold11.jpg");
+const GoldCat11 = require("../assets/Gold_Banner_Imges/c-gold12.jpg");
+const GoldCat12 = require("../assets/Gold_Banner_Imges/c-gold9.jpg");
 
 export const goldProducts = [
   {
@@ -197,6 +209,21 @@ const responsive = {
   },
 };
 
+const categories = [
+  { name: "Earrings", image: GoldCat1, route: "/earrings-list" },
+  { name: "Bangles", image: GoldCat2, route: "/gold-list" },
+  { name: "Silver", image: GoldCat5, route: "/silver-list" },
+  { name: "Diamonds", image: GoldCat4, route: "/diamond-list" },
+  { name: "Necklaces", image: GoldCat3, route: "/gold-list" },
+  { name: "Rings", image: GoldCat11, route: "/gold-list" },
+  { name: "Bracelets", image: GoldCat10, route: "/gold-list" },
+  { name: "Pendants", image: GoldCat9, route: "/gold-list" },
+  { name: "Anklets", image: GoldCat6, route: "/gold-list" },
+  { name: "Gold Coins", image: GoldCat7, route: "/gold-list" },
+  { name: "1 gram Gold", image: Gold8Image, route: "/rold-gold" },
+  // { name: "Brooches", image: GoldCat12, route: "/gold-list" },
+];
+
 const groupProductsIntoRows = (products, itemsPerRow) => {
   const rows = [];
   for (let i = 0; i < products.length; i += itemsPerRow) {
@@ -212,25 +239,7 @@ const groupProductsIntoRows = (products, itemsPerRow) => {
 const GoldCarousel = () => {
   const [selectedCategories, setSelectedCategories] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // const handleCategoryClick = (category, rowIndex) => {
-  //   setSelectedCategories((prevCategories) => ({
-  //     ...prevCategories,
-  //     [rowIndex]: category,
-  //   }));
-  // };
-
-  // const filterProducts = (goldProducts, category) => {
-  //   return category
-  //     ? goldProducts.filter((product) => product.designs.includes(category))
-  //     : goldProducts;
-  // };
-  // const filterProducts = (goldProducts, category) => {
-  //   if (category === "All" || !category) {
-  //     return goldProducts;
-  //   }
-  //   return goldProducts.filter((product) => product.category === category);
-  // };
+  const navigate = useNavigate();
   const filterProducts = (products, category) => {
     if (category === "All") {
       return products;
@@ -256,6 +265,33 @@ return (
 
   return (
     <div key={rowIndex} className="mb-8">
+
+{rowIndex === 0 && (
+      <div className="text-center mt-4 mb-8">
+        {/* <h1 className="text-3xl font-bold text-black">Explore by Category</h1> */}
+       
+         <div className="flex justify-center space-x-6 mt-4 flex-wrap">
+      {categories.map((item) => (
+        <div
+          key={item.name}
+          className="flex flex-col items-center cursor-pointer"
+          onClick={() => navigate(item.route)}
+        >
+          <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-300 shadow-md">
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="mt-2 text-sm font-semibold text-black">
+            {item.name}
+          </span>
+        </div>
+      ))}
+    </div>
+      </div>
+    )}
       {/* Show filters only for the first row */}
       {rowIndex === 0 && (
         <div className="text-center mt-4 mb-8">
@@ -277,7 +313,6 @@ return (
           </div>
         </div>
       )}
-
       <Carousel
         responsive={responsive}
         infinite={false}
@@ -306,7 +341,7 @@ return (
             </Link>
           </div>
         ))}
-        {row.viewAll && (
+       {row.viewAll && (
           <div className="flex justify-center items-center mt-32">
             <Link to="/gold-list" className="flex flex-col items-center">
               <div className="relative flex items-center justify-center w-10 h-10 bg-white border border-blue-600 rounded-full shadow-md">

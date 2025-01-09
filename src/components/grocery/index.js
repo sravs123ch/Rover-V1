@@ -7,10 +7,37 @@ import { groceryData } from "../constants/index.js";
 import Image1 from "../../assets/Bannaer_Images/gorcery/grocery-store-sale-banner-template_23-2151089846.avif";
 import Image2 from "../../assets/Bannaer_Images/gorcery/hand-drawn-supermarket-sale-background_23-2149406388.avif";
 import Image3 from "../../assets/Bannaer_Images/gorcery/super-grocery-sale-social-media-banner-vector.jpg";
+import { useNavigate } from 'react-router-dom';
+
+const GroceryCat1 = require("../../assets/GroceryCat_Images/g1v1.jpg");
+const GroceryCat2 = require("../../assets/GroceryCat_Images/g1v2.jpg");
+const GroceryCat3 = require("../../assets/GroceryCat_Images/g1v3.jpg");
+const GroceryCat4 = require("../../assets/GroceryCat_Images/g1v4.jpg");
+const GroceryCat5 = require("../../assets/Gold_Banner_Imges/c-gold5.jpg");
+const GroceryCat6 = require("../../assets/Gold_Banner_Imges/c-gold6.jpg");
+const GroceryCat7 = require("../../assets/Gold_Banner_Imges/c-gold7.jpg");
+const GroceryCat8 = require("../../assets/Gold_Banner_Imges/c-gold8.jpg");
+const GroceryCat9 = require("../../assets/Gold_Banner_Imges/c-gold10.jpg");
+const GroceryCat10 = require("../../assets/Gold_Banner_Imges/c-gold11.jpg");
+const GroceryCat11 = require("../../assets/Gold_Banner_Imges/c-gold12.jpg");
+const GroceryCat12 = require("../../assets/Gold_Banner_Imges/c-gold9.jpg");
+
+const categories = [
+  { name: "Fruits & Vegetables", image: GroceryCat1, route: "/fruits-vegetables" },
+  { name: "Dairy & Bakery", image: GroceryCat2, route: "/dairy-bakery" },
+  // { name: "Snacks & Beverages", image: GroceryCat3, route: "/snacks-beverages" },
+  // { name: "Meat & Seafood", image: GroceryCat4, route: "/meat-seafood" },
+  // { name: "Pantry Staples", image: GroceryCat5, route: "/pantry-staples" },
+  { name: "Household Supplies", image: GroceryCat3, route: "/household-supplies" },
+  // { name: "Personal Care", image: GroceryCat7, route: "/personal-care" },
+  { name: "Health & Wellness", image: GroceryCat4},
+  // { name: "Baby Care", image: GroceryCat9, route: "/baby-care" },
+  // { name: "Pet Care", image: GroceryCat10, route: "/pet-care" },
+];
 
 const GroceryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  const navigate = useNavigate();
   const imageCarouselSettings = {
     dots: true,
     infinite: true,
@@ -54,6 +81,26 @@ const GroceryPage = () => {
       <div className="flex flex-wrap justify-center mb-8 gap-4">
         {/* Category Buttons (similar to the original code) */}
       </div>
+      <div className="flex justify-center space-x-6 mt-4 flex-wrap">
+      {categories.map((item) => (
+        <div
+          key={item.name}
+          className="flex flex-col items-center cursor-pointer"
+          onClick={() => navigate(item.route)}
+        >
+          <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-300 shadow-md">
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="mt-2 text-sm font-semibold text-black">
+            {item.name}
+          </span>
+        </div>
+      ))}
+    </div>
 
       {/* Cards for each grocery item */}
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

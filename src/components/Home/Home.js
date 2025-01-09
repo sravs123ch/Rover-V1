@@ -19,6 +19,11 @@ import Gold7Image from '../../assets/gold_images/7.jpg';
 import GoldBangle from '../../assets/gold_images/4.jpg';
 import GoldBracelet from '../../assets/gold_images/6.jpg';
 import GoldPendant from '../../assets/gold_images/5.jpg';
+import Gold1 from '../../assets/Diamond_Images/d3.jpg';
+import Gold2 from '../../assets/Diamond_Images/d2.jpg';
+import Gold3 from '../../assets/Diamond_Images/d1.jpg';
+import Gold4 from '../../assets/Silver_Images/s1.jpg';
+import Gold5 from '../../assets/Silver_Images/s2.jpg';
 import Cola from '../../assets/images/softDrinks/cola.jpg';
 import Lemonade from '../../assets/images/softDrinks/Lemonade.jpg';
 import OrangeSoda from '../../assets/images/softDrinks/OrangeSoda.jpg';
@@ -34,7 +39,12 @@ import Pancakes  from '../../assets/images/food/Pancakes.jpg'
 import Burgers from '../../assets/images/food/Burgers.jpg'
 import Wood from '../../assets/images/wood.jpg'
 import Superfoods from '../../assets/images/food/Superfoods.jpg'
-
+import Milk from '../../assets/images/Milk/milk.jpg';
+import Cheese from '../../assets/images/Milk/cheese.jpg';
+import Butter from '../../assets/images/Milk/Butter.jpg';
+import Yogurt from '../../assets/images/Milk/yogurt.jpg';
+import Cream from '../../assets/images/Milk/Cream.jpeg';
+import IceCream from '../../assets/images/Milk/ice-cream.jpg';
 
 const images = [image1, image2, image3];
 // Sample data for construction materials
@@ -112,6 +122,30 @@ const goldData = [
     name: "Gold Pendant with Ruby",
     image: GoldPendant, // Replace with actual image path
     discountedPrice: 20000,
+    originalPrice: 42000,
+    discount: "20% Off",
+  },
+  {
+    id: 5,
+    name: "Diamond Pendant with Ruby",
+    image: Gold3, // Replace with actual image path
+    discountedPrice: 20000,
+    originalPrice: 42000,
+    discount: "20% Off",
+  },
+  {
+    id: 6,
+    name: "Diamond Pendant with Sapphire",
+    image: Gold2, // Replace with actual image path
+    discountedPrice: 240000,
+    originalPrice: 42000,
+    discount: "20% Off",
+  },
+  {
+    id: 7,
+    name: "Diamond",
+    image: Gold1, // Replace with actual image path
+    discountedPrice: 200000,
     originalPrice: 42000,
     discount: "20% Off",
   },
@@ -213,7 +247,56 @@ const Food = [
     originalPrice: 400 
   },
 ];
-
+const dairyProducts = [
+  { 
+    id: 1, 
+    name: 'Milk', 
+    image: Milk, // Replace with actual image path
+    discountedPrice: 30, 
+    originalPrice: 32, 
+    discount: '5% off' 
+  },
+  { 
+    id: 2, 
+    name: 'Cheese', 
+    image: Cheese, // Replace with actual image path
+    discountedPrice: 150, 
+    originalPrice: 167, 
+    discount: '10% off' 
+  },
+  { 
+    id: 3, 
+    name: 'Butter', 
+    image: Butter, // Replace with actual image path
+    discountedPrice: 120, 
+    originalPrice: 141, 
+    discount: '15% off' 
+  },
+  { 
+    id: 4, 
+    name: 'Yogurt', 
+    image: Yogurt, // Replace with actual image path
+    discountedPrice: 50, 
+    originalPrice: 62, 
+    discount: '20% off' 
+  },
+  { 
+    id: 5, 
+    name: 'Cream', 
+    image: Cream, // Replace with actual image path
+    discountedPrice: 100, 
+    originalPrice: 111, 
+    discount: '10% off' 
+  },
+  { 
+    id: 6, 
+    name: 'Ice Cream', 
+    image: IceCream, // Replace with actual image path
+    discountedPrice: 200, 
+    originalPrice: 267, 
+    discount: '25% off' 
+  }
+];
 
 const Home = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -270,7 +353,10 @@ const Home = () => {
       route = "/gold";
     } else if (category === "groceries") {
       route = "/groceries";
-    }  else if (category === "softDrinks") {
+    }   else if (category === "dairyProducts") {
+      route = "/dairy";
+    }  
+    else if (category === "softDrinks") {
       route = "/softDrinks";
     } else if (category === "Food") {
       route = "/food";
@@ -359,7 +445,7 @@ const Home = () => {
         </div>
 
         {/* Gold Heading */}
-        <h1 className="mx-auto py-6 text-4xl font-semibold">Gold</h1>
+        <h1 className="mx-auto py-6 text-4xl font-semibold">Jewellery</h1>
 
         {/* Gold Section */}
         <div className="flex gap-2 overflow-x-auto hide-scrollbar scrolling-touch">
@@ -379,6 +465,11 @@ const Home = () => {
         <h1 className="mx-auto py-6 text-4xl font-semibold">Food</h1>
         <div className="flex gap-2 overflow-x-auto hide-scrollbar scrolling-touch">
           {renderProductCards(Food, "Food")}
+        </div>
+        <h1 className="mx-auto py-6 text-4xl font-semibold"> Dairy
+          </h1>
+        <div className="flex gap-2 overflow-x-auto hide-scrollbar scrolling-touch">
+          {renderProductCards(dairyProducts,"dairyProducts")}
         </div>
       </div>
     </div>

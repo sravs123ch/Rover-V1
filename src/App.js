@@ -38,7 +38,6 @@ import SoftDrinkListPage from "./components/SoftDrinks/softdrinklist";
 import FoodListPage from './components/food/food';
 import FoodDetailsPage from "./components/food/fooddetails";
 import SoftDrinksDetailsPage from "./components/SoftDrinks/softdrinDetails";
-
 import SilverList from './Gold/Silverlist';
 import DiamondList from './Gold/Diamondlist';
 import EarringsList from './Gold/Earringslist';
@@ -47,6 +46,12 @@ import FruitsvegetablesList from './components/grocery/veg-fruitslist';
 import BakeryList from './components/grocery/Bakery';
 import HouseholdList from './components/grocery/Household';
 import HealthList from './components/grocery/Healthlist';
+import Fmcglist from '../src/components/Home/FMCGHome';
+import BabyCare from '../src/components/FMCG/babycare';
+import Electronics from '../src/components/FMCG/Electronics';
+import SkinCare from '../src/components/FMCG/SkinCare';
+import Dairy from './components/Dairy/Dairy';
+import DairyDetailsPage from "./components/Dairy/dairyDeatail";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -150,6 +155,12 @@ function App() {
           <Route path="/silver-list" element={<SilverList />} />
           <Route path="/diamond-list" element={<DiamondList />} />
           <Route path="/earrings-list" element={<EarringsList />} />
+          <Route path="/FMCG" element={<Fmcglist />} />
+          <Route path="/baby-care" element={<BabyCare/>} />
+          <Route path="/electronics" element={<Electronics/>} />
+          <Route path="/skin-care" element={<SkinCare/>} />
+          <Route path="/dairy" element={<Dairy />} />
+          <Route path="/dairy/:id" element={<DairyDetailsPage />} />
         </Routes>
         <Footer />
       </Router>
