@@ -1,0 +1,34 @@
+/* src/components/ProductGrid.css */
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* productgrid.css
+@media (max-width: 767px) {
+.grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+.grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+} */
