@@ -102,7 +102,7 @@ export default function Example() {
             </div>
 
             {/* Links */}
-            <TabGroup className="mt-2">
+            {/* <TabGroup className="mt-2">
               <div className="border-b border-gray-200">
                 <TabList className="-mb-px flex space-x-8 px-4">
                   {Categories.map((category) => (
@@ -115,7 +115,22 @@ export default function Example() {
                   ))}
                 </TabList>
               </div>
-            </TabGroup>
+            </TabGroup> */}
+            <TabGroup className="mt-2">
+  <div className="border-b border-gray-200">
+    <TabList className="flex flex-col lg:flex-row -mb-px space-y-4 lg:space-y-0 lg:space-x-8 px-4">
+      {Categories.map((category) => (
+        <Tab
+          key={category.name}
+          className="flex-1 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-base font-medium text-gray-900 data-[selected]:border-indigo-600 data-[selected]:text-indigo-600"
+        >
+          <a href={category.href}>{category.name}</a>
+        </Tab>
+      ))}
+    </TabList>
+  </div>
+</TabGroup>
+
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
@@ -281,7 +296,7 @@ export default function Example() {
                 <div
                   className={`lg:hidden ${open ? "flex" : "hidden"} flex-col items-center gap-4 p-4 bg-white`}
                 >
-                  <div className="flex flex-col gap-4">
+                  {/* <div className="flex flex-col gap-4">
                     {Categories.map((link) => (
                       <a
                         key={link.name}
@@ -291,7 +306,7 @@ export default function Example() {
                         {link.name}
                       </a>
                     ))}
-                  </div>
+                  </div> */}
 
                   {/* Account and Cart (Mobile) */}
                   <div className="flex items-center justify-between w-full gap-6">
